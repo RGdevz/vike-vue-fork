@@ -33,7 +33,12 @@ const onRenderClient: OnRenderClientAsync = async (
     app = res.app
     objectAssign(pageContext, { app })
     await callCumulativeHooks(pageContext.config.onBeforeRenderClient, pageContext)
-    app.mount(container)
+    const instance = app.mount(container)
+  
+    if (window){
+    window._vueApp_ = instance
+    }
+  
   } else {
     // Client-side navigation
 
@@ -43,8 +48,8 @@ const onRenderClient: OnRenderClientAsync = async (
   }
 
   if (!pageContext.isHydration) {
-    pageContext._headAlreadySetWrapper!.val = true
-    applyHead(pageContext)
+  pageContext._headAlreadySetWrapper!.val = true
+  applyHead(pageContext)
   }
 
   // Use cases:
