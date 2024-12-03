@@ -1,0 +1,94 @@
+{
+  "name": "vike-vue",
+  "version": "0.8.5",
+  "repository": "https://github.com/vikejs/vike-vue",
+  "type": "module",
+  "exports": {
+    "./usePageContext": "./dist/hooks/usePageContext.js",
+    "./useData": "./dist/hooks/useData.js",
+    "./useConfig": {
+      "browser": "./dist/hooks/useConfig/useConfig-client.js",
+      "default": "./dist/hooks/useConfig/useConfig-server.js"
+    },
+    "./Config": {
+      "browser": "./dist/components/Config/Config-client.js",
+      "default": "./dist/components/Config/Config-server.js"
+    },
+    "./Head": {
+      "browser": "./dist/components/Head/Head-client.js",
+      "default": "./dist/components/Head/Head-server.js"
+    },
+    "./clientOnly": "./dist/helpers/clientOnly.js",
+    "./types": {
+      "types": "./dist/types/public.d.ts"
+    },
+    "./config": "./dist/+config.js",
+    "./__internal/integration/onRenderHtml": "./dist/integration/onRenderHtml.js",
+    "./__internal/integration/onRenderClient": "./dist/integration/onRenderClient.js"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "vike": ">=0.4.191",
+    "vue": ">=3.0.0"
+  },
+  "scripts": {
+    "dev": "vite build --watch",
+    "dev:typecheck": "tsc --noEmit --watch",
+    "build": "vue-tsc --noEmit && vite build",
+    "release": "release-me patch",
+    "release:minor": "release-me minor",
+    "release:commit": "release-me commit"
+  },
+  "devDependencies": {
+    "@brillout/release-me": "^0.3.8",
+    "@types/node": "^22.1.0",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "typescript": "~5.6.2",
+    "vike": "^0.4.197",
+    "vite": "^5.4.0",
+    "vite-plugin-dts": "^3.8.3",
+    "vue": "^3.4.36",
+    "vue-tsc": "^2.1.10"
+  },
+  "typesVersions": {
+    "*": {
+      "config": [
+        "./dist/+config.d.ts"
+      ],
+      "types": [
+        "./dist/types/public.d.ts"
+      ],
+      "usePageContext": [
+        "./dist/hooks/usePageContext.d.ts"
+      ],
+      "useData": [
+        "./dist/hooks/useData.d.ts"
+      ],
+      "useConfig": [
+        "./dist/hooks/useConfig/useConfig-server.d.ts"
+      ],
+      "Config": [
+        "./dist/components/Config/Config-server.d.ts"
+      ],
+      "Head": [
+        "./dist/components/Head/Head-server.d.ts"
+      ],
+      "clientOnly": [
+        "./dist/helpers/clientOnly.d.ts"
+      ],
+      "__internal/integration/onRenderHtml": [
+        "./dist/integration/onRenderHtml.d.ts"
+      ],
+      "__internal/integration/onRenderClient": [
+        "./dist/integration/onRenderClient.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist/"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "vue"
+  ]
+}
