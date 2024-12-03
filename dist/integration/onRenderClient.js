@@ -14,10 +14,7 @@ const onRenderClient = async (pageContext) => {
     app = res.app;
     objectAssign(pageContext, { app });
     await callCumulativeHooks(pageContext.config.onBeforeRenderClient, pageContext);
-    const instance = app.mount(container);
-    if (window) {
-      window._vueApp_ = instance;
-    }
+    app.mount(container);
   } else {
     objectAssign(pageContext, { app });
     await callCumulativeHooks(pageContext.config.onBeforeRenderClient, pageContext);
