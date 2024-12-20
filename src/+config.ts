@@ -31,7 +31,7 @@ const config = {
     },
     Layout: {
       env: { server: true, client: true },
-      cumulative: false,
+      cumulative: true,
     },
     title: {
       env: { server: true, client: true },
