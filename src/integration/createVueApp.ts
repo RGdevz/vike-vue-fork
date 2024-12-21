@@ -37,14 +37,22 @@ async function createVueApp(
       layoutRef.value = pageContext.config.Layout || []
     }
     const EntryComponent = () => h(entryComponentRef.value)
-    RootComponent = () => {
-      let RootComp = EntryComponent
+
+     RootComponent = () => {
+      let componentWithLayout = EntryComponent
+
       layoutRef.value.forEach((layout) => {
-        const Comp = RootComp
-        RootComp = () => h(layout, null, Comp)
-      })
-      return RootComp()
+      const Comp = componentWithLayout
+      componentWithLayout = () => h(layout, null, Comp)
+      }
+      )
+
+
+      return componentWithLayout()
     }
+
+
+
   } else {
     RootComponent = () => {
       const HeadElements = [

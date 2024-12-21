@@ -22,7 +22,7 @@ declare const config: {
                 server: true;
                 client: true;
             };
-            cumulative: true;
+            cumulative: false;
         };
         title: {
             env: {

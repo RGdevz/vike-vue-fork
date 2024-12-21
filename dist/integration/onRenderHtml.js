@@ -1,6 +1,6 @@
 import { escapeInject, dangerouslySkipEscape } from "vike/server";
 import { renderToString, renderToNodeStream, renderToWebStream } from "vue/server-renderer";
-import { c as createVueApp, a as callCumulativeHooks, g as getHeadSetting } from "../getHeadSetting-BrEHeu4d.js";
+import { c as createVueApp, a as callCumulativeHooks, g as getHeadSetting } from "../getHeadSetting-CT2C2CIP.js";
 function assert(condition) {
   if (condition) return;
   throw new Error("You stumbled upon a vike-vue bug, reach out on GitHub.");
