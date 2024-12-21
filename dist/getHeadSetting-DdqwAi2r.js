@@ -47,6 +47,7 @@ async function createVueApp(pageContext, ssr, entryComponentName) {
     RootComponent = () => {
       let componentWithLayout = EntryComponent;
       const layouts = layoutRef.value;
+      if (!layouts) return componentWithLayout();
       if (Array.isArray(layouts)) {
         layouts.forEach(
           (layout) => {
@@ -135,4 +136,4 @@ export {
   getHeadSetting as g,
   objectAssign as o
 };
-//# sourceMappingURL=getHeadSetting-Bxk5nzxw.js.map
+//# sourceMappingURL=getHeadSetting-DdqwAi2r.js.map

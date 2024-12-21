@@ -44,6 +44,8 @@ async function createVueApp(
 
       const layouts = layoutRef.value
 
+      if (!layouts) return componentWithLayout()
+
        if (Array.isArray(layouts)) {
 
        layouts.forEach((layout) => {
@@ -60,9 +62,9 @@ async function createVueApp(
 
        }
 
-
       return componentWithLayout()
-    }
+     }
+
 
 
 
@@ -116,7 +118,8 @@ async function createVueApp(
   }
 
   return { app, changePage }
-}
+ }
+
 
 function assertDataIsObject(data: unknown): asserts data is Record<string, unknown> {
   if (!isPlainObject(data)) throw new Error('data() should return a plain object, undefined, or null')
