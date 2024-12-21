@@ -42,7 +42,7 @@ async function createVueApp(
      RootComponent = () => {
       let componentWithLayout = EntryComponent
 
-       console.log(layoutRef)
+       console.log(layoutRef.value)
 
       layoutRef.value.forEach((layout) => {
       const Comp = componentWithLayout

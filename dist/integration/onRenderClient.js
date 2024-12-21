@@ -1,4 +1,4 @@
-import { c as createVueApp, o as objectAssign, a as callCumulativeHooks, g as getHeadSetting } from "../getHeadSetting-BwTpbYTA.js";
+import { c as createVueApp, o as objectAssign, a as callCumulativeHooks, g as getHeadSetting } from "../getHeadSetting-RBxCuYEB.js";
 import { a as applyHeadSettings } from "../applyHeadSettings-B0wJc4FV.js";
 let app;
 let changePage;

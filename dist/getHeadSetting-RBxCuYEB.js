@@ -46,7 +46,7 @@ async function createVueApp(pageContext, ssr, entryComponentName) {
     const EntryComponent = () => h(entryComponentRef.value);
     RootComponent = () => {
       let componentWithLayout = EntryComponent;
-      console.log(layoutRef);
+      console.log(layoutRef.value);
       layoutRef.value.forEach(
         (layout) => {
           const Comp = componentWithLayout;
@@ -130,4 +130,4 @@ export {
   getHeadSetting as g,
   objectAssign as o
 };
-//# sourceMappingURL=getHeadSetting-BwTpbYTA.js.map
+//# sourceMappingURL=getHeadSetting-RBxCuYEB.js.map
