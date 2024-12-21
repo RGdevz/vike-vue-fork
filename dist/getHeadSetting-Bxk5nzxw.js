@@ -46,13 +46,18 @@ async function createVueApp(pageContext, ssr, entryComponentName) {
     const EntryComponent = () => h(entryComponentRef.value);
     RootComponent = () => {
       let componentWithLayout = EntryComponent;
-      console.log(layoutRef.value);
-      layoutRef.value.forEach(
-        (layout) => {
-          const Comp = componentWithLayout;
-          componentWithLayout = () => h(layout, null, Comp);
-        }
-      );
+      const layouts = layoutRef.value;
+      if (Array.isArray(layouts)) {
+        layouts.forEach(
+          (layout) => {
+            const Comp = componentWithLayout;
+            componentWithLayout = () => h(layout, null, Comp);
+          }
+        );
+      } else {
+        const Comp = componentWithLayout;
+        componentWithLayout = () => h(layouts, null, Comp);
+      }
       return componentWithLayout();
     };
   } else {
@@ -130,4 +135,4 @@ export {
   getHeadSetting as g,
   objectAssign as o
 };
-//# sourceMappingURL=getHeadSetting-RBxCuYEB.js.map
+//# sourceMappingURL=getHeadSetting-Bxk5nzxw.js.map

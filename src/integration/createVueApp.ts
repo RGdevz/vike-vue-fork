@@ -2,15 +2,15 @@ export { createVueApp }
 export type { ChangePage }
 
 import {
-  type App,
-  createApp,
-  createSSRApp,
-  h,
-  nextTick,
-  shallowRef,
-  shallowReactive,
-  type Component,
-  Fragment,
+ type App,
+ createApp,
+ createSSRApp,
+ h,
+ nextTick,
+ shallowRef,
+ shallowReactive,
+ type Component,
+ Fragment, Ref,
 } from 'vue'
 import type { PageContext } from 'vike/types'
 import { setPageContext } from '../hooks/usePageContext'
@@ -42,13 +42,23 @@ async function createVueApp(
      RootComponent = () => {
       let componentWithLayout = EntryComponent
 
-       console.log(layoutRef.value)
+      const layouts = layoutRef.value
 
-      layoutRef.value.forEach((layout) => {
-      const Comp = componentWithLayout
-      componentWithLayout = () => h(layout, null, Comp)
-      }
-      )
+       if (Array.isArray(layouts)) {
+
+       layouts.forEach((layout) => {
+       const Comp = componentWithLayout
+       componentWithLayout = () => h(layout, null, Comp)
+       }
+       )
+       } else {
+
+
+       const Comp = componentWithLayout
+
+       componentWithLayout = () => h(layouts, null, Comp)
+
+       }
 
 
       return componentWithLayout()
