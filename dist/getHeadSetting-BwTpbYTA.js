@@ -45,14 +45,15 @@ async function createVueApp(pageContext, ssr, entryComponentName) {
     };
     const EntryComponent = () => h(entryComponentRef.value);
     RootComponent = () => {
-      let RootComp = EntryComponent;
+      let componentWithLayout = EntryComponent;
+      console.log(layoutRef);
       layoutRef.value.forEach(
         (layout) => {
-          const Comp = RootComp;
-          RootComp = () => h(layout, null, Comp);
+          const Comp = componentWithLayout;
+          componentWithLayout = () => h(layout, null, Comp);
         }
       );
-      return RootComp();
+      return componentWithLayout();
     };
   } else {
     RootComponent = () => {
@@ -129,4 +130,4 @@ export {
   getHeadSetting as g,
   objectAssign as o
 };
-//# sourceMappingURL=getHeadSetting-CT2C2CIP.js.map
+//# sourceMappingURL=getHeadSetting-BwTpbYTA.js.map

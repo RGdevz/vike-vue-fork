@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="4d795fb9-cb4e-48ad-92c7-67f2bdbd0d4b" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,6 +26,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "ts.external.directory.path": "E:\\git\\vike-vue-fork\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -53,7 +57,7 @@
       <option name="presentableId" value="Default" />
       <updated>1734780178018</updated>
       <workItem from="1734780180900" duration="32000" />
-      <workItem from="1734780223510" duration="345000" />
+      <workItem from="1734780223510" duration="715000" />
     </task>
     <servers />
   </component>

@@ -33,13 +33,16 @@ async function createVueApp(
     const entryComponentRef = shallowRef(pageContext.config[entryComponentName])
     const layoutRef = shallowRef(pageContext.config.Layout || [])
     onChangePage = (pageContext: PageContext) => {
-      entryComponentRef.value = pageContext.config[entryComponentName]
-      layoutRef.value = pageContext.config.Layout || []
+    entryComponentRef.value = pageContext.config[entryComponentName]
+    layoutRef.value = pageContext.config.Layout || []
     }
+
     const EntryComponent = () => h(entryComponentRef.value)
 
      RootComponent = () => {
       let componentWithLayout = EntryComponent
+
+       console.log(layoutRef)
 
       layoutRef.value.forEach((layout) => {
       const Comp = componentWithLayout
@@ -54,16 +57,18 @@ async function createVueApp(
 
 
   } else {
+
     RootComponent = () => {
       const HeadElements = [
-        // Added by +Head
-        ...(pageContext.config.Head ?? []),
-        // Added by useConfig()
-        ...(pageContext._configFromHook?.Head ?? []),
+     // Added by +Head
+     ...(pageContext.config.Head ?? []),
+     // Added by useConfig()
+     ...(pageContext._configFromHook?.Head ?? []),
       ].map((HeadComponent) => h(HeadComponent))
       return h(Fragment, null, HeadElements)
     }
-  }
+    }
+
 
   const app: App = ssr ? createSSRApp(RootComponent) : createApp(RootComponent)
   objectAssign(pageContext, { app })
@@ -84,11 +89,11 @@ async function createVueApp(
     let returned = false
     let err: unknown
     app.config.errorHandler = (err_) => {
-      if (returned) {
-        console.error(err_)
-      } else {
-        err = err_
-      }
+    if (returned) {
+    console.error(err_)
+    } else {
+    err = err_
+    }
     }
     const data = pageContext.data ?? {}
     assertDataIsObject(data)
