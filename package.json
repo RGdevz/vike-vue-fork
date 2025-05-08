@@ -1,5 +1,5 @@
 {
-  "name": "vike-vue",
+  "name": "@rg-dev/vike-vue",
   "version": "0.8.5",
   "repository": "https://github.com/vikejs/vike-vue",
   "type": "module",
@@ -87,6 +87,9 @@
   "files": [
     "dist/"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "license": "MIT",
   "keywords": [
     "vue"
